@@ -1,0 +1,119 @@
+/* ========================================
+   GLOBAL STYLES & BASE CONFIGURATION
+   ======================================== */
+
+@import '@fontsource/fira-mono';
+@import './lib/styles/theme.css';
+
+/* Global CSS Variables - Non-theme specific */
+:root {
+	/* Font Variables */
+	--font-body:
+		Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+		'Open Sans', 'Helvetica Neue', sans-serif;
+	--font-mono: 'Fira Mono', monospace;
+	
+	/* Layout Variables */
+	--column-width: 42rem;
+	--column-margin-top: 4rem;
+	
+	/* Component Animation & Layout Variables */
+	--underline-animation: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+	--hover-transition: all 0.2s ease;
+	--nav-padding-sm: 0.375rem 0.75rem;
+	--nav-padding-md: 0.5rem 1rem;
+	--nav-padding-lg: 0.75rem 1.5rem;
+	--border-radius: 0.375rem;
+	--focus-ring: 0 0 0 2px rgba(59, 130, 246, 0.5);
+	
+	/* Apply font globally */
+	font-family: var(--font-body);
+}
+
+/* ========================================
+   BASE ELEMENT STYLES
+   ======================================== */
+
+body {
+	min-height: 100vh;
+	margin: 0;
+	background: var(--nav-bg);
+	color: var(--primary-text);
+	font-family: var(--font-body);
+}
+
+h1,
+h2,
+p {
+	font-weight: 400;
+}
+
+p {
+	line-height: 1.5;
+}
+
+a {
+	color: var(--primary-hover);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+h1 {
+	font-size: 2rem;
+	text-align: center;
+}
+
+h2 {
+	font-size: 1rem;
+}
+
+pre {
+	font-size: 16px;
+	font-family: var(--font-mono);
+	background-color: var(--secondary-bg);
+	border-radius: var(--border-radius);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	padding: 0.75em;
+	overflow-x: auto;
+	color: var(--primary-color);
+}
+
+.text-column {
+	display: flex;
+	max-width: 48rem;
+	flex: 0.6;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0 auto;
+}
+
+input,
+button {
+	font-size: inherit;
+	font-family: inherit;
+}
+
+button:focus:not(:focus-visible) {
+	outline: none;
+}
+
+@media (min-width: 720px) {
+	h1 {
+		font-size: 2.4rem;
+	}
+}
+
+.visually-hidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: auto;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	white-space: nowrap;
+}
