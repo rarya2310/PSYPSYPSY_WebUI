@@ -1,4 +1,5 @@
 <script lang="ts">
+<<<<<<< HEAD
 	import { page } from '$app/stores';
 	import SlidingBanner from '$lib/elements/SlidingBanner.svelte';
 	import BaseNavLink from '$lib/elements/BaseNavLink.svelte';
@@ -292,5 +293,103 @@ header {
 			padding: 0.375rem 0.75rem;
 			font-size: 10px;
 		}
+=======
+	import { page } from '$app/state';
+	import logo from '$lib/images/svelte-logo.svg';
+	import github from '$lib/images/github.svg';
+</script>
+
+<header>
+	<SlidingBanner messages={[
+		'PSYPSYPSY',
+		'It\'s a Vice.',
+		'Shipping all over India.',
+		'Hypnosis in thread.'
+	]} interval={2500} />
+	
+	<nav class="main-nav">
+		<div class="nav-left">
+			<!-- Mobile menu button -->
+			<button class="mobile-menu-toggle" on:click={handleMenuClick} aria-label="Toggle navigation menu">
+				MENU
+			</button>
+			
+			<!-- Desktop nav links -->
+			<div class="desktop-nav-links">
+				<BaseNavLink href="/apparels" active={$page.url.pathname.toString() === '/apparels'} variant="primary">APPARELS</BaseNavLink>
+				<BaseNavLink href="/collections" active={$page.url.pathname.toString() === '/collections'} variant="primary">COLLECTIONS</BaseNavLink>
+				<BaseNavLink href="/new-in" active={$page.url.pathname.toString() === '/new-in'} variant="primary">NEW IN</BaseNavLink>
+			</div>
+		</div>
+		
+		<div class="nav-center">
+			<a href="/" class="logo" style="--logo-size: {logoSize}">PSYPSYPSY</a>
+		</div>
+		
+	   <div class="nav-right">
+		 <button class="theme-toggle" on:click={toggleTheme} aria-label="Toggle dark/light mode">
+		   {#if theme === 'dark'}
+			 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"></path></svg>
+		   {:else}
+			 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2m0 18v2m11-11h-2M3 12H1m16.95 6.95-1.41-1.41M6.34 6.34 4.93 4.93m12.02 0-1.41 1.41M6.34 17.66l-1.41 1.41"/></svg>
+		   {/if}
+		 </button>
+	   </div>
+	   
+	   <!-- Mobile Navigation Dropdown -->
+	   <MobileNavBar bind:isOpen={mobileMenuOpen} />
+	</nav>
+</header>
+
+<style>
+header {
+	display: flex;
+	flex-direction: column;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	background: var(--primary-bg);
+}
+
+	.main-nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0.5rem 2rem;
+		background: var(--primary-bg);
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+		position: relative;
+	}	.nav-left,
+	.nav-right {
+		display: flex;
+		gap: 2rem;
+		flex: 1;
+	}
+
+	.nav-right {
+		justify-content: flex-end;
+	}
+
+	.nav-center {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 10;
+	}
+
+	.logo {
+		font-family: 'Times New Roman', serif;
+		font-size: var(--logo-size, 3rem);
+		font-weight: bold;
+		color: var(--primary-color);
+		text-decoration: none;
+		letter-spacing: 0.05em;
+		transition: color 0.3s ease, font-size 0.2s ease;
+		text-transform: uppercase;
+	}
+
+	a:hover {
+		color: var(--color-theme-1);
+>>>>>>> origin/master
 	}
 </style>
